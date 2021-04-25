@@ -1,6 +1,9 @@
 import "./App.css";
 import axios from "axios";
 import React, {useState} from "react";
+import CarInfo from "./components/CarInfo";
+import InputForm from "./components/InputForm";
+import ResultsHeader from "./components/ResultsHeader";
 
 function App() {
   const [year, setYear] = useState("2015");
@@ -68,57 +71,21 @@ function App() {
 
   return (
     <div className="App">
-      <div className="inputFlex">
-        <h1>Car Search</h1>
-        <div className="input">
-          <label>Type</label>
-          <input type="name" value={type} onChange={(e) => setType(e.target.value)} placeholder="Car Type"></input>
-        </div>
-        <div className="input">
-          <label>Make</label>
-          <input type="name" value={make} onChange={(e) => setMake(e.target.value)} placeholder="Car Make"></input>
-        </div>
-        <div className="input">
-          <label>Year: {year}</label>
-          <input
-            class="range"
-            type="range"
-            min="1930"
-            max="2022"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}></input>
-        </div>
-        <div className="check">
-          <input checked={useYear} onClick={() => setUseYear(!useYear)} type="checkbox"></input>
-          <label>Use year in search</label>
-        </div>
-
-        <button onClick={search}>Search</button>
-      </div>
+      <InputForm
+        type={type}
+        setType={setType}
+        make={make}
+        setMake={setMake}
+        year={year}
+        setYear={setYear}
+        useYear={useYear}
+        setUseYear={setUseYear}
+        search={search}
+      />
       <div className="resultsWrapper">
-        <div className="resultsHeader">
-          <div className="makeID">Make ID</div>
-          {results[0]?.hasOwnProperty("VehicleTypeId") && <div className="typeID">Type ID</div>}
-          <div className="modelID">Model ID</div>
-          <div className="makeName">Make Name</div>
-          {results[0]?.hasOwnProperty("VehicleTypeName") && <div className="typeName">Type Name</div>}
-          <div className="modelName">Model Name</div>
-        </div>
+        <ResultsHeader results={results} />
         <div className="resultsInfo">
-          {results.length === 0 ? (
-            <h1>No Results</h1>
-          ) : (
-            results.map((result, key) => (
-              <div className="results" key={key}>
-                <div className="makeID">{result.Make_ID}</div>
-                {result.VehicleTypeId && <div className="typeID">{result.VehicleTypeId}</div>}
-                <div className="modelID">{result.Model_ID}</div>
-                <div className="makeName">{result.Make_Name}</div>
-                {result.VehicleTypeName && <div className="typeName">{result.VehicleTypeName}</div>}
-                <div className="modelName">{result.Model_Name}</div>
-              </div>
-            ))
-          )}
+          {results.length === 0 ? <h1>No Results</h1> : results.map((result, key) => <CarInfo result={result} key={key} />)}
         </div>
       </div>
     </div>
