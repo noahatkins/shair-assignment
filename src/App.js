@@ -10,8 +10,8 @@ function App() {
   const [results, setResults] = useState([]);
 
   function search() {
-    if (make != "") {
-      if (useYear && type != "") {
+    if (make !== "") {
+      if (useYear && type !== "") {
         axios
           .get(
             `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}/vehicletype/${type}?format=json`
