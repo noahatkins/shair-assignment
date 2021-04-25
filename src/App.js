@@ -37,7 +37,7 @@ function App() {
             console.log(error);
           })
           .then(function () {});
-      } else if (!type === "") {
+      } else if (type !== "") {
         axios
           .get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${type}?format=json`)
           .then(function (response) {
