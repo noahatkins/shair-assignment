@@ -1,38 +1,167 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  background-color: white;
+  border: 2px solid transparent;
+  color: #767676;
+  outline: none;
+  border-radius: 5px;
+  width: 300px;
+  height: 50px;
+  margin: 10px 0px;
+  padding: 0 0 0 10px;
+  font-size: 17px;
+  font-family: "Roboto", "serif";
+}
+input[type="name"]:hover {
+  background-color: #f1f1f1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.check {
+  margin-top: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="checkbox"] {
+  width: fit-content;
+  height: fit-content;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none !important;
+  outline: none !important;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input[type="name"]:focus {
+  border-color: #7b7b7b;
+}
+.inputFlex {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #0ba1fe;
+  width: fit-content;
+  width: 400px;
+  height: 500px;
+  padding: 50px 0px;
+}
+
+label {
+  color: white;
+}
+.inputFlex h1 {
+  text-align: center;
+  color: white;
+  margin: 0;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+h2 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.range {
+  height: 25px;
+  background: white;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 0px;
+  width: 300px;
+  font-size: 15px;
+  color: white;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: white;
+  color: #0ba1fe;
+}
+.slr:hover {
+  opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: #0ba1fe;
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  border: none;
+
+  background: #cccccc;
+  cursor: pointer;
+}
+
+.results {
+  display: flex;
+  padding-left: 10px;
+}
+.resultsInfo {
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.resultsInfo h1 {
+  padding-left: 10px;
+}
+.resultsInfo div {
+  padding: 1px auto;
+}
+.resultsInfo div:hover {
+  background-color: white;
+  color: #0ba1fe;
+  cursor: pointer;
+}
+.resultsWrapper {
+  height: 500px;
+  background-color: #0ba1fe;
+  color: white;
+  border-left: 2px solid white;
+}
+
+.resultsHeader {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  border-bottom: 2px solid white;
+  padding-left: 10px;
+}
+
+.makeID {
+  width: 75px;
+}
+
+.makeName {
+  width: 100px;
+}
+
+.modelName {
+  width: 350px;
+}
+
+.modelID {
+  width: 75px;
+}
+
+.typeID {
+  width: 75px;
+}
+
+.typeName {
+  width: 100px;
 }
